@@ -93,13 +93,16 @@ class JarraGrande {
                 else if (bytesLeidos == 0)
                 {
                     cout << "El servidor ha cerrado la conexión. Reintentando..." << endl;
+                    // Esperar antes de reintentar
                     sleep(2);
+                    //reconectar
                     connectar();
                 }
                 else
                 {
                     cout << "Error en la recepción de datos. Reintentando..." << endl;
-                    sleep(2); // Esperar antes de reintentar, por ejemplo
+                    // Esperar antes de reintentar
+                    sleep(2);
                 }
             }
     }
@@ -112,14 +115,13 @@ class JarraGrande {
 int main() {
 	JarraGrande jg;
 
-    // Enviar mensaje "hola"
     jg.llenar(5);
     jg.anadir(3);
-    jg.esperarPorRespuesta(); // Esperar por respuesta
+    jg.esperarPorRespuesta(); 
     jg.transvasar();
     jg.llenar(5);
     jg.anadir(3);
-    jg.esperarPorRespuesta(); // Esperar por respuesta
+    jg.esperarPorRespuesta(); 
 
     jg.closeSocket();
 
